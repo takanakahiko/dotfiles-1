@@ -1,0 +1,15 @@
+{
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Better CoffeeScript",
+		"BracketHighlighter",
+		"Monokai Extended",
+		"Package Control",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"Theme - Flatland"
+	]
+}

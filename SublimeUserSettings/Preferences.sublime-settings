@@ -1,0 +1,16 @@
+{
+	"color_scheme": "Packages/User/Monokai Extended Bright (SL).tmTheme",
+	"draw_white_space": "all",
+	"font_size": 14,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"rulers":
+	[
+		80
+	],
+	"theme": "Flatland Dark.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true
+}
