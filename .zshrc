@@ -126,8 +126,15 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 小文字に対して大�
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
 # plenv
-export PATH="$HOME/.plenv/bin:$PATH"
-eval "$(plenv init -)"
+if [ -d $HOME/.plenv/ ]; then
+    export PATH="$HOME/.plenv/bin:$PATH"
+    eval "$(plenv init -)"
+fi
+
+# perlbrew
+if [ -f $HOME/perl5/perlbrew/etc/bashrc ]; then
+    source $HOME/perl5/perlbrew/etc/bashrc
+fi
 
 #homebrew
 export PATH="/usr/local/bin:$PATH"
