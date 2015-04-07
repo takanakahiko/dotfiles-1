@@ -19,4 +19,8 @@ for dotfile in ${dotfiles[@]}; do
 done
 
 # sublime settings
-ln -is ~/dotfiles/SublimeUserSettings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+rm ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+ln -s ~/dotfiles/SublimeUserSettings/ ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+
+# Karabiner settings
+ln -is ~/dotfiles/Karabiner/private.xml ~/Library/Application\ Support/Karabiner/private.xml

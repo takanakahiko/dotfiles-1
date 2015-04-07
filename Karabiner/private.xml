@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<root>
+
+    <appdef>
+        <appname>iTerm2</appname>
+        <equal>com.googlecode.iterm2</equal>
+    </appdef>
+
+    <appdef>
+        <appname>Sublime Text 3</appname>
+        <equal>com.sublimetext.3</equal>
+    </appdef>
+
+    <devicevendordef>
+        <vendorname>TOPRE</vendorname>
+        <vendorid>0x0853</vendorid>
+    </devicevendordef>
+
+    <deviceproductdef>
+        <productname>Realforce_86U</productname>
+        <productid>0x010e</productid>
+    </deviceproductdef>
+
+    <item>
+        <name>Key Fix in Realforce 86U</name>
+        <identifier>private.rf86_key_fix</identifier>
+        <device_only>DeviceVendor::TOPRE, DeviceProduct::Realforce_86U</device_only>
+        <!-- Default: Windows key = COMMAND_L, Application key = PC_APPLICATION, Alt = option -->
+        <autogen>__KeyToKey__ KeyCode::CONTROL_R, KeyCode::FN</autogen>
+        <autogen>__KeyToKey__ KeyCode::COMMAND_L, KeyCode::OPTION_L</autogen>
+        <autogen>__KeyToKey__ KeyCode::PC_APPLICATION, KeyCode::OPTION_R</autogen>
+        <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_L, KeyCode::COMMAND_L, KeyCode::JIS_EISUU</autogen>
+        <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_R, KeyCode::COMMAND_R, KeyCode::JIS_KANA</autogen>
+    </item>
+
+    <item>
+        <name>Normal Mode With Eisuu in iTerm2, Sublime Text 3</name>
+        <identifier>private.normal_mode_with_eisuu</identifier>
+        <only>iTerm2, Sublime Text 3</only>
+        <autogen>__KeyToKey__ KeyCode::J, VK_CONTROL, KeyCode::J, VK_CONTROL, KeyCode::JIS_EISUU</autogen>
+    </item>
+
+</root>
