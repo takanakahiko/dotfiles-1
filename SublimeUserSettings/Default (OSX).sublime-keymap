@@ -1,15 +1,4 @@
 [
-  // 上移動（Ctrl + K）
-  { "keys": ["ctrl+k"], "command": "move", "args": {"by": "lines", "forward": false } },
-  // 下移動（Ctrl + J）
-  { "keys": ["ctrl+j"], "command": "move", "args": {"by": "lines", "forward": true } },
-  // 右移動（Ctrl + L）
-  { "keys": ["ctrl+l"], "command": "move", "args": {"by": "characters", "forward": true } },
-  // 左移動（Ctrl + H）
-  { "keys": ["ctrl+h"], "command": "move", "args": {"by": "characters", "forward": false } },
-  // 行末まで削除（Ctrl + F）
-  { "keys": ["ctrl+f"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete to Hard EOL.sublime-macro" } },
-
   // 補完選択をタブで下に移動させる
   { "keys": ["tab"], "command": "auto_complete",
       "context": [
@@ -24,7 +13,7 @@
       ]
   },
 
-  // ファイル移動
+  // タブ移動
   { "keys": ["ctrl+."], "command": "next_view" },
   { "keys": ["ctrl+,"], "command": "prev_view" },
 
@@ -34,6 +23,21 @@
       { "key": "following_text", "operator": "regex_contains", "operand": "^[)'\"\\}\\]]", "match_all": true },
       { "key": "auto_complete_visible", "operator": "equal", "operand": false }
     ]
+  },
+
+  // Vim 風になるように設定
+  { "keys": ["ctrl+j"], "command": "exit_insert_mode",
+     "context": [
+         { "key": "setting.command_mode", "operand": false },
+         { "key": "setting.is_widget", "operand": false }
+     ]
+  },
+  { "keys": ["ctrl+j"], "command": "exit_visual_mode",
+     "context": [
+         { "key": "setting.command_mode"},
+         { "key": "num_selections", "operand": 1},
+         { "key": "selection_empty", "operator": "equal", "operand": false, "match_all": false }
+     ]
   },
 
 ]

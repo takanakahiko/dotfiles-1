@@ -6,6 +6,9 @@
 	[
 		"Better CoffeeScript",
 		"BracketHighlighter",
+		"FindKeyConflicts",
+		"Git",
+		"GitGutter",
 		"Monokai Extended",
 		"Package Control",
 		"SideBarEnhancements",
