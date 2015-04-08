@@ -5,14 +5,14 @@
 	"installed_packages":
 	[
 		"Better CoffeeScript",
-		"BracketHighlighter",
+		"Block Cursor Everywhere",
 		"FindKeyConflicts",
 		"Git",
-		"GitGutter",
 		"Monokai Extended",
 		"Package Control",
 		"SideBarEnhancements",
 		"SublimeLinter",
+		"SublimeLinter-jshint",
 		"Theme - Flatland"
 	]
 }

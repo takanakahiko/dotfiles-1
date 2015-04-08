@@ -31,10 +31,10 @@
 				<string>#FFE792</string>
 				<key>findHighlightForeground</key>
 				<string>#000000</string>
-				
+
 				<key>selectionBorder</key>
 				<string>#1C1C1C</string>
-				
+
 				<key>activeGuide</key>
 				<string>#9D550FB0</string>
 
@@ -990,14 +990,26 @@
                 <key>foreground</key>
                 <string>#DA2000</string>
             </dict>
+        </dict><dict>
+            <key>name</key>
+            <string>Block Cursor</string>
+            <key>scope</key>
+            <string>block_cursor</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#ffffff</string>
+                <key>background</key>
+                <string>#9D550F</string>
+            </dict>
         </dict></array>
-	<key>uuid</key>
-	<string>b76b4488-20c3-40a7-9499-457a451ee558</string>
-	<key>colorSpaceName</key>
-	<string>sRGB</string>
-	<key>semanticClass</key>
-	<string>theme.dark.monokai_bright_extended</string>
-	<key>author</key>
-	<string>@tapionlinna</string>
+    <key>uuid</key>
+    <string>b76b4488-20c3-40a7-9499-457a451ee558</string>
+    <key>colorSpaceName</key>
+    <string>sRGB</string>
+    <key>semanticClass</key>
+    <string>theme.dark.monokai_bright_extended</string>
+    <key>author</key>
+    <string>@tapionlinna</string>
 </dict>
 </plist>
