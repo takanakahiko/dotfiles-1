@@ -13,7 +13,8 @@ alias tmux='tmux -u'
 alias open='open `pwd`'
 
 # nvm, node
-source $HOME/.nvm/nvm.sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # zshoption の設定
 setopt always_last_prompt    # カーソル位置は保持したままファイル名一覧を順次その場で表示
@@ -28,7 +29,8 @@ setopt auto_pushd            # cd 時に元いたディレクトリを自動的�
 DIRSTACKSIZE=100             # スタックの上限
 setopt auto_remove_slash     # 補完されたパスが/で終って、その次の単語が語分割子か/かコマンド# の後(; とか & )だったら、補完末尾の/を取る
 setopt extended_glob         # 特殊文字 # ~ ^ を使って補完
-                             # 例えばless *.txt~memo.txt ならmemo.txt 以外の *.txt にマッチ
+                             # ex1) less *.txt~memo.txt ならmemo.txt 以外の *.txt にマッチ
+                             # ex2) ^*.bak ならファイルの末尾が .bak でないファイル全部
 setopt extended_history      # ヒストリに時刻情報もつける
 setopt globdots              # 明確なドットの指定なしで.から始まるファイルをマッチ
 setopt hist_ignore_all_dups  # 重複するヒストリを持たない
@@ -55,6 +57,7 @@ setopt transient_rprompt     # 右プロンプトに入力がきたら消す
 # 関数読み込み
 autoload -U colors && colors
 autoload -U compinit && compinit
+autoload -Uz add-zsh-hook        # precmd などにユーザー定義関数を hook していく
 
 # history
 HISTFILE=$HOME/.zsh_history            # 履歴をファイルに保存する
@@ -69,51 +72,6 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
-# Mac Terminal のタイトル
-case "${TERM}" in
-    xterm-256color)
-        precmd() {
-            echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-        }
-        ;;
-esac
-
-# PROMPT
-case ${UID} in
-    0) # root
-        PROMPT='`git-current-branch`%F{yellow}[%n@%M]%f%# '
-        ;;
-    *)
-        PROMPT='%F{cyan}[%n@%M][%4~]%f`git-current-branch`'$'\n''%F{cyan}%#%f '
-        ;;
-esac
-
-# ブランチネームを表示する関数
-autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
-function git-current-branch {
-    local branch st color gitdir action
-    if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
-        return
-    fi
-    branch=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
-    if [[ -z $branch ]]; then
-        return
-    fi
-    gitdir=`git rev-parse --git-dir 2> /dev/null`
-    action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
-    st=`git status 2> /dev/null`
-    if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-        color=%F{green}
-    elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-        color=%F{yellow}
-    elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-        color=%B%F{red}
-    else
-        color=%F{red}
-    fi
-    echo "${color}(${branch}${action})%f%b"
-}
-
 # LSCOLORS
 export LSCOLORS=exfxcxdxbxegedabagacad
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
@@ -121,9 +79,6 @@ zstyle ':completion:*' list-colors 'di=;34' 'ln=;35' 'so=;32' 'ex=31' 'bd=46;34'
 
 # zstyle
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 小文字に対して大文字も補完する
-
-# load .zshrc.mine which is a private config
-[ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
 # plenv
 if [ -d $HOME/.plenv/ ]; then
@@ -136,9 +91,70 @@ if [ -f $HOME/perl5/perlbrew/etc/bashrc ]; then
     source $HOME/perl5/perlbrew/etc/bashrc
 fi
 
-#homebrew
+# homebrew
 export PATH="/usr/local/bin:$PATH"
-
+export PATH="/usr/include/malloc:$PATH"
 
 # local::lib
-# eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)
+eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)
+
+function update_terminal_title() {
+    echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
+}
+
+# Mac Terminal のタイトル
+case "${TERM}" in
+    xterm-256color)
+        add-zsh-hook precmd update_terminal_title
+        ;;
+esac
+
+# vcs_info の解説サイト
+# git status を使って add されていないファイルを調べようとすると重いので vcs_info を使用
+# http://tkengo.github.io/blog/2013/05/12/zsh-vcs-info/
+# http://qiita.com/mollifier/items/8d5a627d773758dd8078
+autoload -Uz vcs_info
+
+# プロンプトが表示される毎に実行される関数
+add-zsh-hook precmd vcs_info
+
+# vcs_info 表示内容をカスタマイズ
+zstyle ':vcs_info:git:*' check-for-changes true                  # formats で %c %u が使えるようになる
+zstyle ':vcs_info:git:*' stagedstr         "%F{red}"             # add ファイルがあればここで指定した文字が %c に格納される
+zstyle ':vcs_info:git:*' unstagedstr       "%F{red}"             # add されていないファイルがあればここで指定した文字が %u に格納される
+zstyle ':vcs_info:*'     formats           "%F{green}%c%u[%b]%f" # vcs_info_msg_N_ に格納されるフォーマット
+zstyle ':vcs_info:*'     actionformats     '[%b|%a]'             # merge や rebase の時、formats の代わりにここで指定した文字が ${vcs_info_msg_0_} に格納される
+zstyle ':vcs_info:git+set-message:*' hooks git-untracked         # untracked files を検知する処理を set-message にフックする
+                                                                 # set-message というのは vcs_info_msg_N_ 変数の値を設定する直前の処理のこと
+
+# untracked files を検知する（submodule に untracked files があっても反応しないので注意）
++vi-git-untracked() {
+    # rev-parse --is-inside-work-tree は git 管理ディレクトリにいるかどうか
+    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]]; then
+        cd `git rev-parse --show-toplevel`
+        if [[ -n $(git ls-files --others --exclude-standard) ]] ; then
+            hook_com[unstaged]="%F{yellow}"
+        fi
+    fi
+}
+
+# PROMPT
+case ${UID} in
+    0) # root
+        PROMPT='%F{orange}[%n@%M][%4~]%f${vcs_info_msg_0_}'$'\n''%F{cyan}%#%f '
+        ;;
+    *)
+        PROMPT='%F{cyan}[%n@%M][%4~]%f${vcs_info_msg_0_}'$'\n''%F{cyan}%#%f '
+        ;;
+esac
+
+# 便利関数群
+function delete-br() {
+    for branch in $(git for-each-ref --format='%(refname:short)' refs/heads); do
+        echo -n "delete this branch [ $branch ] [y/n] "; read answer
+        [ "$answer" = "y" ] && git branch -D $branch
+    done
+}
+
+# load .zshrc.mine which is a private config
+[ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
