@@ -123,7 +123,7 @@ zstyle ':vcs_info:git:*' check-for-changes true                  # formats で %
 zstyle ':vcs_info:git:*' stagedstr         "%F{red}"             # add ファイルがあればここで指定した文字が %c に格納される
 zstyle ':vcs_info:git:*' unstagedstr       "%F{red}"             # add されていないファイルがあればここで指定した文字が %u に格納される
 zstyle ':vcs_info:*'     formats           "%F{green}%c%u[%b]%f" # vcs_info_msg_N_ に格納されるフォーマット
-zstyle ':vcs_info:*'     actionformats     '[%b|%a]'             # merge や rebase の時、formats の代わりにここで指定した文字が ${vcs_info_msg_0_} に格納される
+zstyle ':vcs_info:*'     actionformats     '%F{red}[%b|%a]'      # merge や rebase の時、formats の代わりにここで指定した文字が ${vcs_info_msg_0_} に格納される
 zstyle ':vcs_info:git+set-message:*' hooks git-untracked         # untracked files を検知する処理を set-message にフックする
                                                                  # set-message というのは vcs_info_msg_N_ 変数の値を設定する直前の処理のこと
 
@@ -131,10 +131,12 @@ zstyle ':vcs_info:git+set-message:*' hooks git-untracked         # untracked fil
 +vi-git-untracked() {
     # rev-parse --is-inside-work-tree は git 管理ディレクトリにいるかどうか
     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]]; then
+        cd `pwd`
         cd `git rev-parse --show-toplevel`
         if [[ -n $(git ls-files --others --exclude-standard) ]] ; then
             hook_com[unstaged]="%F{yellow}"
         fi
+        cd - 1> /dev/null 2> /dev/null
     fi
 }
 
