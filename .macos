@@ -1,0 +1,85 @@
+################################################################################
+# Mac環境設定
+################################################################################
+
+### 一般 ###
+
+# このMacとiCloudデバイス間でのHandoffを許可
+defaults -currentHost write com.apple.coreservices.useractivityd ActivityAdvertisingAllowed -bool false
+defaults -currentHost write com.apple.coreservices.useractivityd ActivityReceivingAllowed -bool false
+
+### Dock ###
+
+# 「サイズ」を調整する
+defaults write com.apple.dock tilesize -int 90
+
+# 「拡大」にチェックをつける
+defaults write com.apple.dock magnification -bool yes
+
+# 「拡大」時のサイズを調整する (一般的な最大: 128)
+defaults write com.apple.dock largesize -int 65
+
+# 「画面上の位置」を左にする
+defaults write com.apple.dock orientation -string left
+
+# 「ウインドウをしまうときのエフェクト」をスケールエフェクトにする
+defaults write com.apple.dock mineffect -string scale
+
+# 「ウインドウをアプリケーションアイコンにしまう」にチェックをつける
+defaults write com.apple.dock minimize-to-application -bool yes
+
+# 「Dockを自動的に表示/非表示」にチェックをつける
+defaults write com.apple.dock autohide -bool yes
+
+# Dockの表示/非表示の切り替えの反応速度
+defaults write com.apple.dock autohide-delay -float 0
+
+### キーボード ###
+
+## キーボード
+
+# キーのリピート
+defaults write NSGlobalDomain KeyRepeat -int 2
+
+# リピート入力認識までの時間
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+
+## ユーザ辞書
+
+# 「英字入力中にスペルを自動変換」のチェックを外す
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# 「文頭を自動的に大文字にする」のチェックを外す
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+
+# 「スペースバーを2回押してピリオドを入力」のチェックを外す
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+
+# 「スマート引用符とスマートダッシュを使用」のチェックを外す
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+### トラックパッド ###
+
+## ポイントとクリック
+
+# 「調べる&データ検出」を「3本指でタップ」にする
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 2
+
+# 「タップでクリック」にチェックをつけ「1本指でタップ」にする
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+
+## その他のジェスチャ
+
+# 「アプリケーションExpose」にチェックをつける
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerHorizSwipeGesture -int 2
+
+### 日付と時刻 ###
+
+# 日付と時刻のフォーマット（24時間表示、秒表示あり、日付・曜日を表示）
+defaults write com.apple.menuextra.clock DateFormat -string "M\u6708d\u65e5(EEE)  H:mm:ss"
+
+### その他 ###
+
+# キャプチャに影を付けない
+# defaults write com.apple.screencapture disable-shadow -boolean true
