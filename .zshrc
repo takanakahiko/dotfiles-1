@@ -5,17 +5,6 @@ export LANG=ja_JP.UTF-8
 # keybind
 bindkey -e
 
-# alias
-alias ls='ls -GF'
-alias la='ls -a'
-alias ll='ls -l'
-alias tmux='tmux -u'
-alias open='open `pwd`'
-
-# nvm, node
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
 # zshoption の設定
 setopt always_last_prompt    # カーソル位置は保持したままファイル名一覧を順次その場で表示
 setopt always_to_end         # 補完後、カーソル位置は補完した単語の後ろの位置に移動する
@@ -60,7 +49,7 @@ autoload -U compinit && compinit
 autoload -Uz add-zsh-hook        # precmd などにユーザー定義関数を hook していく
 
 # history
-HISTFILE=$HOME/.zsh_history            # 履歴をファイルに保存する
+HISTFILE=${ZDOTDIR}/.zsh_history            # 履歴をファイルに保存する
 HISTSIZE=100000                        # メモリ内の履歴の数
 SAVEHIST=100000                        # 保存される履歴の数
 function history-all { history -E 1 }  # 全履歴の一覧を出力する
@@ -79,24 +68,6 @@ zstyle ':completion:*' list-colors 'di=;34' 'ln=;35' 'so=;32' 'ex=31' 'bd=46;34'
 
 # zstyle
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 小文字に対して大文字も補完する
-
-# plenv
-if [ -d $HOME/.plenv/ ]; then
-    export PATH="$HOME/.plenv/bin:$PATH"
-    eval "$(plenv init -)"
-fi
-
-# perlbrew
-if [ -f $HOME/perl5/perlbrew/etc/bashrc ]; then
-    source $HOME/perl5/perlbrew/etc/bashrc
-fi
-
-# homebrew
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/include/malloc:$PATH"
-
-# local::lib
-eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)
 
 function update_terminal_title() {
     echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
@@ -150,13 +121,11 @@ case ${UID} in
         ;;
 esac
 
-# 便利関数群
-function delete-br() {
-    for branch in $(git for-each-ref --format='%(refname:short)' refs/heads); do
-        echo -n "delete this branch [ $branch ] [y/n] "; read answer
-        [ "$answer" = "y" ] && git branch -D $branch
-    done
-}
-
 # load .zshrc.mine which is a private config
-[ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
+[ -f "${ZDOTDIR}/.zshrc.mine" ] && source ${ZDOTDIR}/.zshrc.mine
+
+# alias
+[[ -f "${ZDOTDIR}/.aliases" ]] && source ${ZDOTDIR}/.aliases
+
+# exports
+[[ -f "${ZDOTDIR}/.exports" ]] && source ${ZDOTDIR}/.exports

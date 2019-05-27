@@ -28,8 +28,6 @@ case "${TERM}" in
         ;;
 esac
 
-
-
 export PS1='\[\e[0;36m\][\u@\h][\w]\[\e[00m\]$(parse_git_branch)\n\[\e[0;36m\]\$\[\e[00m\] '
 export LSCOLORS=exfxcxdxbxegedabagacad
 
@@ -48,16 +46,8 @@ function parse_git_branch {
     echo -e "\033[${color}m${branch}\033[00m"
 }
 
-# plenv
-export PATH="$HOME/.plenv/bin:$PATH"
-eval "$(plenv init -)"
+# alias
+[[ -f "${HOME}/.aliases" ]] && source ${HOME}/.aliases
 
-
-# local::lib
-# eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-#export NVM_DIR="/Users/hodaka/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# exports
+[[ -f "${HOME}/.exports" ]] && source ${HOME}/.exports
