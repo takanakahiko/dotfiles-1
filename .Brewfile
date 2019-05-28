@@ -1,3 +1,4 @@
+brew "git"
 brew "ghq"
 brew "gibo"
 brew "hub"
