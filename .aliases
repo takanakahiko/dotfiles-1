@@ -4,3 +4,5 @@ alias la='ls -a'
 alias ll='ls -l'
 alias tmux='tmux -u'
 alias open='open `pwd`'
+alias icloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/"
+alias cdrepo='cd $(ghq root)/$(ghq list | peco) && git private'
