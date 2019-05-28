@@ -102,8 +102,8 @@ zstyle ':vcs_info:git+set-message:*' hooks git-untracked         # untracked fil
 +vi-git-untracked() {
     # rev-parse --is-inside-work-tree は git 管理ディレクトリにいるかどうか
     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]]; then
-        cd `pwd`
-        cd `git rev-parse --show-toplevel`
+        cd "`pwd`" # ディレクトリ名に空白が入ることがあるので"をつけておく
+        cd "`git rev-parse --show-toplevel`"
         if [[ -n $(git ls-files --others --exclude-standard) ]] ; then
             hook_com[unstaged]="%F{yellow}"
         fi
