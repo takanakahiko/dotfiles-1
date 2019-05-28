@@ -114,15 +114,18 @@ zstyle ':vcs_info:git+set-message:*' hooks git-untracked         # untracked fil
 # PROMPT
 case ${UID} in
     0) # root
-        PROMPT='%F{orange}[%n@%M][%4~]%f${vcs_info_msg_0_}'$'\n''%F{cyan}%#%f '
+        PROMPT='%F{orange}[%n@%M][%5~]%f${vcs_info_msg_0_}'$'\n''%S%(?,%F{green},%F{red})%#%f%s '
         ;;
     *)
-        PROMPT='%F{cyan}[%n@%M][%4~]%f${vcs_info_msg_0_}'$'\n''%F{cyan}%#%f '
+        # %(?,%F{green},%F{red})について
+        # ?は直前のコマンドのステータス
+        # %( , , )はif...then...else...
+        PROMPT='%S%F{blue}[%n]%f%F{cyan}[%5~]%f%s%S${vcs_info_msg_0_}%s'$'\n''%S%(?,%F{green},%F{red})%#%f%s '
         ;;
 esac
 
 # load .zshrc.mine which is a private config
-[ -f "${ZDOTDIR}/.zshrc.mine" ] && source ${ZDOTDIR}/.zshrc.mine
+[[ -f "${ZDOTDIR}/.zshrc.mine" ]] && source ${ZDOTDIR}/.zshrc.mine
 
 # alias
 [[ -f "${ZDOTDIR}/.aliases" ]] && source ${ZDOTDIR}/.aliases
