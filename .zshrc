@@ -1,5 +1,6 @@
 
-export ZDOTDIR=${HOME} # 設定ファイル配置ディレクトリ
+export ZDOTDIR=$HOME  # 設定ファイル配置ディレクトリ
+export XDG_CONFIG_HOME=$HOME/.config
 export LANG=ja_JP.UTF-8
 
 # keybind
