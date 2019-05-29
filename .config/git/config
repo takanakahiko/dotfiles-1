@@ -1,21 +1,21 @@
 [user]
-    name = Hodaka Suzuki
-    email = altitude3190@gmail.com
+  name = Hodaka Suzuki
+  email = altitude3190@gmail.com
 [alias]
-    br = branch
-    co = checkout
-    st = status
+  br = branch
+  co = checkout
+  st = status
 [push]
-    default = simple
+  default = simple
 [pager]
-    log  = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
+  log  = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
 [interactive]
   diffFilter = diff-highlight
 [diff]
   compactionHeuristic = true
 [hub]
-    host = github.dena.jp
+  host = github.dena.jp
 [ghq]
-    root = ~/ghq
+  root = ~/ghq
