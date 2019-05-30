@@ -1,6 +1,7 @@
-brew "git"
+brew "anyenv"
 brew "ghq"
 brew "gibo"
+brew "git"
 # brew "gradle"              # java8がインストールされていないとダメ
 brew "hub"
 brew "mackup"
