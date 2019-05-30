@@ -52,8 +52,10 @@ git clone https://github.com/hoddy3190/dotfiles.git
 + ログインシェルをzshにする
   - ` chsh -s /bin/zsh `
   - ターミナルを閉じ、iTerm2を起動する
-+ 環境構築
-  - [anyenv](https://github.com/anyenv/anyenv)を使って、各言語のバージョン管理ツールをインストール
+    - 最初からzshにするのではなく、なぜこのタイミングでzshに切り替えるかというと、mackup restoreで環境変数のファイルがHOMEに配置されたから
+    - 例えば、以降のanyenvでは、` eval "$(anyenv init -)" ` をログイン時に読み込んでおく必要がある
++ 言語のバージョン管理ツールをインストール
+  - ` bash setup-anyenv.sh `
 + Mac環境設定
   - 一般
     - デフォルトのWebブラウザをChromeにする
