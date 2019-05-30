@@ -1,0 +1,29 @@
+{
+    "vim.disableAnnoyingNeovimMessage": true,
+    "workbench.colorTheme": "Monokai GRS",
+    "workbench.activityBar.visible": true,
+    "workbench.statusBar.visible": true,
+    "workbench.iconTheme": null,
+    "files.trimTrailingWhitespace": true,
+    "editor.renderWhitespace": "boundary",
+    "editor.minimap.enabled": false,
+    "extensions.ignoreRecommendations": true,
+    "go.useLanguageServer": true,
+    "go.docsTool": "gogetdoc",
+    "eslint.alwaysShowStatus": true,
+    "eslint.provideLintTask": true,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        {
+            "language": "vue",
+            "autoFix": true
+        }
+    ],
+    "files.associations": {
+        "*.vue": "vue"
+    },
+    "eslint.autoFixOnSave": true,
+    "breadcrumbs.enabled": false,
+    "editor.rulers": [80]
+}
