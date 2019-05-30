@@ -43,6 +43,15 @@ git clone https://github.com/hoddy3190/dotfiles.git
       Password:
       Installing karabiner-elements
       ```
++ mackupでrestoreする
+  - ```
+    ln -s $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/dotfiles/.mackup.cfg $HOME/.mackup.cfg
+    ln -s $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/dotfiles/.mackup $HOME/.mackup
+    mackup restore
+    ```
++ ログインシェルをzshにする
+  - ` chsh -s /bin/zsh `
+  - ターミナルを閉じ、iTerm2を起動する
 + 環境構築
   - [anyenv](https://github.com/anyenv/anyenv)を使って、各言語のバージョン管理ツールをインストール
 + Mac環境設定
