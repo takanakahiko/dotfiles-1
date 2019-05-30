@@ -1,17 +1,3 @@
-# plenv
-if [ -d $HOME/.plenv/ ]; then
-    export PATH="$HOME/.plenv/bin:$PATH"
-    eval "$(plenv init -)"
-fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
-xport PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-vs () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-
 eval "$(anyenv init -)"
 
 export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
