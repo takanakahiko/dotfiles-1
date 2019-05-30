@@ -16,12 +16,33 @@ git clone https://github.com/hoddy3190/dotfiles.git
 
 「手動対応」と書かれているところ以外はすべて自動化されている。
 
-+ 本リポジトリをclone
++ iCloudにログインする
+  - 「システム環境設定」から「iCloud」を選択し、ログインする
+  - 「iCloud Drive」と「メモ」と「Macを探す」にチェックをつける
+  - まだ本リポジトリをcloneしていなければ、iCloud Drive内に本リポジトリをdotfilesという名前でclone
+    ```
+    cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs
+    git clone https://github.com/hoddy3190/dotfiles.git
+    ```
 + 必要なアプリケーションをインストール
-  - homebrewのインストール
-    - ` /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" `
-  - `.Brewfile` のシムリンクをHOMEディレクトリに配置
-  - ` brew bundle --global `
+  - homebrewのインストール&brew bundleの実行
+    - ```
+      cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/dotfiles
+      bash setup-homebrew.sh
+      ```
+    - 最初、Xcode Command Line Toolsのインストールのため、Returnキー押下とパスワードの要求をされるので、応じる
+      ```
+      ==> The Xcode Command Line Tools will be installed.
+
+      Press RETURN to continue or any other key to abort
+      ==> /usr/bin/sudo /bin/chmod u+rwx /usr/local/bin /usr/local/lib
+      Password:
+      ```
+    - karabiner-elementsをインストールする際、passwordとアプリケーションの実行許可を要求されるので、応じる
+      ```
+      Password:
+      Installing karabiner-elements
+      ```
 + 環境構築
   - [anyenv](https://github.com/anyenv/anyenv)を使って、各言語のバージョン管理ツールをインストール
 + Mac環境設定
@@ -97,6 +118,3 @@ git clone https://github.com/hoddy3190/dotfiles.git
       - com.apple.finder.plist
   - iTerm2
     - [TODO]その他書き加える
-  - iCloud **（手動対応）**
-    - ログインする
-    - 「iCloud Drive」と「メモ」と「Macを探す」にチェックをつける
