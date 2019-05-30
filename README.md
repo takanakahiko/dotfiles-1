@@ -128,4 +128,15 @@ git clone https://github.com/hoddy3190/dotfiles.git
     - sync対象
       - com.apple.finder.plist
   - iTerm2
-    - [TODO]その他書き加える
+    - Preferences
+      - Profiles
+        - Colors
+          - 「Color Presets」をMolokaiにする
+        - Text
+          - 「Font」のサイズを15pxにする
+          - 「Non-ASCII Font」のサイズを15pxにする
+  - Visual Studio Code
+    - CLIでVisual Studio Codeを起動できるようにする
+      - ` Cmd + Shift + P ` でコマンドパレットを開く
+      - 「Shell Command: Install 'code' command in PATH」をクリック
+
