@@ -11,8 +11,9 @@ xport PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 vs () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-export PATH="$HOME/.anyenv/bin:$PATH"
+
 eval "$(anyenv init -)"
+
 export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
 export PATH="$PATH:$HOME/Library/Android/sdk/tools"
 export PATH="$PATH:$HOME/Library/Android/sdk/build-tools"

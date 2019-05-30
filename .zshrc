@@ -131,5 +131,5 @@ esac
 # alias
 [[ -f "${ZDOTDIR}/.aliases" ]] && source ${ZDOTDIR}/.aliases
 
-# exports
-[[ -f "${ZDOTDIR}/.exports" ]] && source ${ZDOTDIR}/.exports
+# profile
+[[ -f "${ZDOTDIR}/.profile" ]] && source ${ZDOTDIR}/.profile

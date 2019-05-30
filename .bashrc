@@ -48,6 +48,3 @@ function parse_git_branch {
 
 # alias
 [[ -f "${HOME}/.aliases" ]] && source ${HOME}/.aliases
-
-# exports
-[[ -f "${HOME}/.exports" ]] && source ${HOME}/.exports
