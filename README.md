@@ -116,22 +116,16 @@ git clone https://github.com/hoddy3190/dotfiles.git
       - ``$ launchctl kickstart -k gui/`id -u`/org.pqrs.karabiner.karabiner_console_user_server``  
   - Finder
     - 環境設定
-      - 一般
-        - 「新規Finderウィンドウで次を表示」のところをHOMEディレクトリにする
       - サイドバー
         - よく使う項目
           - 「最近使った項目」のチェックを外す
           - 「ムービー」のチェックをつける
           - 「ピクチャ」のチェックをつける
           - 「HOME」のチェックをつける
-        - タグ
-          - 「最近使ったタグ」のチェックを外す
       - 詳細
         - 「すべてのファイル名拡張子を表示」にチェックをつける
-        - 「拡張子を変更する前に警告を表示」のチェックを外す
-        - 検索実行時を「現在のフォルダ内を検索」にする
-    - sync対象
-      - com.apple.finder.plist
+      - その他は自動化されている
+        - [.macos](./.macos)参照
   - iTerm2
     - Preferences
       - Profiles
