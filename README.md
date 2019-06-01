@@ -160,4 +160,11 @@ git clone https://github.com/hoddy3190/dotfiles.git
     - CLIでVisual Studio Codeを起動できるようにする
       - ` Cmd + Shift + P ` でコマンドパレットを開く
       - 「Shell Command: Install 'code' command in PATH」をクリック
-
+  - Alfred 3
+    - General
+      - 「Alfred Hotkey」をctrl+Spaceに変更する
+    - Powerpack
+      - PowerpackをActivateする
+        - アクセシビリティの許可を求めてくるので、拒否する
+    - Advanced
+      - 「Syncing」の「Set preferences folder」を`$HOME/Library/Mobile\ Documents/com~apple~CloudDocs/dotfiles/Alfred`に設定
