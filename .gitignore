@@ -1,4 +1,3 @@
 # passwordが書かれるようなファイルはcommitしない
 .config/hub
 .netrc
-Library/Preferences/com.apple.finder.plist

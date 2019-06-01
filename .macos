@@ -83,3 +83,40 @@ defaults write com.apple.menuextra.clock DateFormat -string "M\u6708d\u65e5(EEE)
 
 # キャプチャに影を付けない
 # defaults write com.apple.screencapture disable-shadow -boolean true
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+
+################################################################################
+# Finder
+################################################################################
+
+# 「新規Finderウィンドウで次を表示」をHOMEディレクトリにする
+defaults write com.apple.finder NewWindowTarget -string "PfHm"
+
+# 「すべてのファイル名拡張子を表示」にチェックをつける
+defaults write com.apple.finder AppleShowAllFiles TRUE
+
+# 「拡張子を変更する前に警告を表示」のチェックを外す
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# show litsview as default
+defaults write com.apple.Finder FXPreferredViewStyle -string "Nlsv"
+
+# 検索実行時を「現在のフォルダ内を検索」にする
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Show absolute path in finder's title bar
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
+
+# Allow text selection in Quick Look/Preview
+defaults write com.apple.finder QLEnableTextSelection -bool true
+
+# Show Path bar in Finder
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Show Status bar in Finder
+defaults write com.apple.finder ShowStatusBar -bool true
+
+killall Finder
