@@ -105,10 +105,15 @@ git clone https://github.com/hoddy3190/dotfiles.git
     - ディスプレイ
       - カーソルのサイズを調整する
 + アプリケーション設定
-  - Karabiner
-    - 「caps lock」と「left ctrl」を入れ替える
-    - [rules](https://pqrs.org/osx/karabiner/complex_modifications/)から「For Japanese （日本語環境向けの設定）」をimport
-    - 「Complex Modifications」の「Rules」に「コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな）」を追加
+  - Karabiner-Elements
+    - Karabiner-Elementsを起動させ、「キーボード設定アシスタント」（初回起動時のみ出現）に従ってキーを押す
+    - 設定結果として、「ANSI（米国その他）」が選択されていることを確認し、「完了」を押す
+    - 上でたたいた`mackup restore`コマンドにより、すでに、`~/.config/karabiner`に設定ファイルが配置されているので、設定が反映されていることを確認する。設定で行っていることは以下：
+      - 「caps lock」と「left ctrl」を入れ替える
+      - [rules](https://pqrs.org/osx/karabiner/complex_modifications/)から「For Japanese （日本語環境向けの設定）」をimport
+      - 「Complex Modifications」の「Rules」に「コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな）」を追加
+    - もし設定が反映されていないときは、公式ページの[The location of the configuration file](https://pqrs.org/osx/karabiner/document.html#configuration-file-path)を参考に、下のコマンドを打ち込む
+      - ``$ launchctl kickstart -k gui/`id -u`/org.pqrs.karabiner.karabiner_console_user_server``  
   - Finder
     - 環境設定
       - 一般
