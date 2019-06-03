@@ -65,6 +65,10 @@
 
 ## Mac環境設定
 
+```
+bash .macos
+```
+
 「手動対応」と書かれているところ以外はすべて、[.macos](./.macos)で自動化されている。
 
 - 一般
@@ -149,6 +153,9 @@
     - その他変更する箇所はいくつかあるが、他はすべて自動化されている
       - [.macos](./.macos)参照
 - iTerm2
+  - General
+    - Preferences
+      - 「Load preferences from a custom folder or URL」にチェックを入れ、Browseで`$HOME/Library/Mobile Documents/com~apple~CloudDocs/dotfiles/Library/Preferences`を指定。
   - Preferences
     - Profiles
       - Colors
@@ -170,17 +177,18 @@
 - Visual Studio Code
   - CLIでVisual Studio Codeを起動できるようにする
     - ` Cmd + Shift + P ` でコマンドパレットを開く
+    - 「shell」と入力する
     - 「Shell Command: Install 'code' command in PATH」をクリック
   - 「EXTENSIONS」で「@recommended」と入力し、すべてインストール
     - mackupで共有している`$HOME/.vscode/extensions.json`が読み込まれている
 - Alfred 3
-  - General
-    - 「Alfred Hotkey」をctrl+Spaceに変更する
-  - Features
-    - 「Clipboard History」にて、「Keep Plain Text」と「Keep Images」と「Keep File Lists」にチェックをつける
-    - 「Keep Plain Text」を「３ Months」に変更する
   - Powerpack
     - PowerpackをActivateする
       - アクセシビリティの許可を求めてくるので、拒否する
   - Advanced
     - 「Syncing」の「Set preferences folder」を`$HOME/Library/Mobile\ Documents/com~apple~CloudDocs/dotfiles/Alfred`に設定
+  - General
+    - 「Alfred Hotkey」をctrl+Spaceに変更する
+  - Features
+    - 「Clipboard History」にて、「Keep Plain Text」と「Keep Images」と「Keep File Lists」にチェックをつける
+    - 「Keep Plain Text」を「３ Months」に変更する
