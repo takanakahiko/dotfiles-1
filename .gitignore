@@ -1,5 +1,6 @@
 # passwordやその他個人情報が書かれるようなファイルはcommitしない
 .config/hub
+.config/git/config_company
 .netrc
 .bash_history
 .zsh_history
