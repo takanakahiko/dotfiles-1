@@ -5,6 +5,10 @@
     "workbench.statusBar.visible": true,
     "workbench.iconTheme": null,
     "files.trimTrailingWhitespace": true,
+    // Markdownの場合は空白トリミングは実施しない
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false
+    }
     "editor.renderWhitespace": "boundary",
     "editor.minimap.enabled": false,
     "extensions.ignoreRecommendations": true,
