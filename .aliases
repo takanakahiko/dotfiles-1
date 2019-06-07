@@ -9,4 +9,4 @@ icloud_path="$HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias icloud="cd ${icloud_path}"
 alias dotfiles="cd ${icloud_path}/dotfiles"
 alias config="cd ${XDG_CONFIG_HOME}"
-alias cdrepo='cd $(ghq root)/$(ghq list | peco) && git private'
+alias cdrepo='cd $(ghq root)/$(ghq list | peco)'
