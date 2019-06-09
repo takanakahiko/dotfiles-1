@@ -30,3 +30,6 @@ cask "kobo"
 cask "pycharm-ce"
 cask "slack"
 cask "visual-studio-code"
+
+tap sanemat/font
+brew ricty

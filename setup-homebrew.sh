@@ -14,3 +14,7 @@ brew bundle --file=.Brewfile
 # gitのdiffを見やすくするために、diff-highlightにパスを通す
 # cf. https://qiita.com/takyam/items/d6afacc7934de9b0e85e
 ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+
+# Rictyのインストール
+cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
+fc-cache -vf
