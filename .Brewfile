@@ -4,6 +4,7 @@ brew "gibo"
 brew "git"
 # brew "gradle"              # java8がインストールされていないとダメ
 brew "hub"
+brew "jq"
 brew "mackup"
 brew "peco"
 brew "qpdf"
