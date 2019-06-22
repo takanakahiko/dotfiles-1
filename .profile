@@ -13,3 +13,11 @@ alias emulator=/Users/hodaka.suzuki/Library/Android/sdk/emulator/emulator
 export GOPATH="$HOME/.go"
 export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
+
+# pipenv
+
+# virtual envをどこに作るか
+# defaultだと$HOME/.local/share/virtualenvs/に作られてしまうので、
+# これを避けて、project配下に作るためのオプションを設定する
+export PIPENV_VENV_IN_PROJECT=1
+
