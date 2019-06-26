@@ -12,7 +12,15 @@ anyenv install nodenv
 anyenv install goenv
 anyenv install jenv
 
-exec $SHELL -l
+# plugin
+
+# anyenv-update: provides `anyenv update` command to update target envs
+#                https://github.com/znz/anyenv-update
+mkdir -p $(anyenv root)/plugins
+git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
 
 echo 'installed envs are...'
 anyenv envs
+
+exec $SHELL -l
+
