@@ -19,3 +19,5 @@
   root = ~/ghq
 [includeIf "gitdir:~/ghq/*.jp/"]
   path = ./config_company
+[core]
+	ignorecase = false
