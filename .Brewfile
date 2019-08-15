@@ -21,6 +21,7 @@ cask_args appdir: "/Applications"
 tap "homebrew/cask"
 cask "alfred"
 cask "android-studio"        # インストールに10分ほど要す
+cask "dash"
 cask "docker"
 # cask "google-chrome"
 # cask "google-japanese-ime"
