@@ -67,6 +67,8 @@
 
 - 鍵の作成とssh-add
   - ` bash setup-ssh.sh `
+- SDKMANのインストール
+  - ` bash setup-sdkman.sh `
 
 ## Mac環境設定
 
