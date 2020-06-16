@@ -4,5 +4,10 @@
         "key": "ctrl+j",
         "command": "vim.Esc",
         "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+cmd+m",
+        "command": "workbench.action.editor.nextChange",
+        "when": "editorTextFocus"
     }
 ]
