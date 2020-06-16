@@ -18,6 +18,9 @@ export PIPENV_VENV_IN_PROJECT=1
 # goenv
 export PATH=$PATH:$GOPATH/bin
 
+# Haskell
+export PATH=$PATH:$HOME/.local/bin
+
 # SDKMAN
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
