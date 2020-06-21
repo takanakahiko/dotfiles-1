@@ -1,1 +1,4 @@
 set vertical-split = no
+set diff-highlight = true
+
+bind status + !git commit --amend
