@@ -24,6 +24,7 @@ cask "android-studio"        # インストールに10分ほど要す
 cask "dash"
 cask "docker"
 # cask "google-chrome"
+cask "google-cloud-sdk"
 # cask "google-japanese-ime"
 cask "intellij-idea"
 cask "iterm2"
