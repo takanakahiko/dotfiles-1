@@ -29,5 +29,5 @@ cask "kobo"
 cask "slack"
 cask "visual-studio-code"
 
-tap sanemat/font
-brew ricty
+tap "sanemat/font"
+brew "ricty"
