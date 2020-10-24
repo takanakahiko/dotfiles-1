@@ -3,7 +3,7 @@ brew "ghq"
 brew "gibo"
 brew "git"
 # brew "gradle"              # java8がインストールされていないとダメ
-brew "hub"
+brew "gh"
 brew "jq"
 brew "mackup"
 brew "peco"
