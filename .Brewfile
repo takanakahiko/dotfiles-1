@@ -29,6 +29,8 @@ cask "karabiner-elements"    # passwordの入力とダウンロードしたア�
 cask "kobo"
 cask "slack"
 cask "visual-studio-code"
+cask "wechat"
+cask "zoomus"
 
 tap "sanemat/font"
 brew "ricty"
